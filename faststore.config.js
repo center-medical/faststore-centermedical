@@ -1,80 +1,99 @@
+
 module.exports = {
   seo: {
-    title: "NextJSStore",
-    description: "Fast Demo Store",
-    titleTemplate: "%s | FastStore",
-    author: "Store Framework",
-  },
-  theme: "custom-theme",
-  platform: "vtex",
+  "title": "Equipamentos hospitalares, equipamento cirúrgicos e mais | CenterMedical",
+  "description": "CenterMedical, Equipamentos Hospitalares. Compre em até 6X sem Juros. Com Frete Grátis*. 12 anos de Experiência. Acesse e Conheça! Desc para pgto no Boleto. Pague em até 6x s/ juros. As Melhores Marcas. Tipos: Móveis, Autoclaves, Bombas Aspiradoras.",
+  "titleTemplate": "%s | CenterMedical",
+  "author": "CenterMedical"
+},
+
+  // Theming
+  theme: 'custom-theme',
+
+  // Ecommerce Platform
+  platform: 'vtex',
+
+  // Platform specific configs for API
   api: {
-    storeId: "storeframework",
-    workspace: "master",
-    environment: "vtexcommercestable",
-    hideUnavailableItems: false,
+    storeId: "centermedical",
+    workspace: 'master',
+    environment: 'vtexcommercestable',
+    hideUnavailableItems: true,
     incrementAddress: false,
   },
+
+  // Default session
   session: {
     currency: {
-      code: "USD",
-      symbol: "$",
+      code: "BRL",
+      symbol: "R$",
     },
-    locale: "en-US",
-    channel: '{"salesChannel":"1","regionId":""}',
-    country: "USA",
+    locale: "pt-BR",
+    channel: '{"salesChannel":1,"regionId":""}',
+    country: "BRA",
     deliveryMode: null,
     addressType: null,
     postalCode: null,
     geoCoordinates: null,
     person: null,
   },
+
   cart: {
-    id: "",
+    id: '',
     items: [],
     messages: [],
     shouldSplitItem: true,
   },
-  storeUrl: "https://vtexfaststore.com",
-  secureSubdomain: "https://secure.vtexfaststore.com",
+
+  // Production URLs
+  storeUrl: "https://centermedical.vtex.app",
+  secureSubdomain: "https://secure.vtexfaststore.com/",
   checkoutUrl: "https://secure.vtexfaststore.com/checkout",
   loginUrl: "https://secure.vtexfaststore.com/api/io/login",
   accountUrl: "https://secure.vtexfaststore.com/api/io/account",
+
   previewRedirects: {
-    home: "/",
-    plp: "/office",
-    search: "/s?q=headphone",
-    pdp: "/apple-magic-mouse/p",
+    home: '/',
+    plp: "/resgate%20e%20salvamento",
+    search: "/s?q=CenterMedical",
+    pdp: "/colar-cervical-varios-tamanhos/p",
   },
+
+  // Lighthouse CI
   lighthouse: {
-    server: "http://localhost:3000",
+    server: process.env.BASE_SITE_URL || 'http://localhost:3000',
     pages: {
-      home: "/",
-      pdp: "/apple-magic-mouse/p",
-      collection: "/office",
+      home: '/',
+      pdp: "/colar-cervical-varios-tamanhos/p",
+      collection: "/resgate%20e%20salvamento",
     },
   },
+
+  // E2E CI
   cypress: {
     pages: {
-      home: "/",
-      pdp: "/apple-magic-mouse/p",
-      collection: "/office",
-      collection_2: "/technology",
-      collection_filtered:
-        "/office/?category-1=office&marca=acer&facets=category-1%2Cmarca",
-      search: "/s?q=orange",
+      home: '/',
+      pdp: "/colar-cervical-varios-tamanhos/p",
+      collection: "/resgate%20e%20salvamento",
+      collection_filtered: "/resgate%20e%20salvamento/?category-1=resgate%20e%20salvamento&brand=CenterMedical&facets=category-1%2Cbrand%27",
+      search: "/s?q=CenterMedical",
     },
+    browser: 'electron',
   },
+
   analytics: {
-    gtmContainerId: "GTM-PGHZ95N",
+    // https://developers.google.com/tag-platform/tag-manager/web#standard_web_page_installation,
+    gtmContainerId: "",
   },
+
   experimental: {
     nodeVersion: 18,
     cypressVersion: 12,
   },
-  account: "storeframework",
+
   vtexHeadlessCms: {
     webhookUrls: [
-      "https://storeframework.myvtex.com/cms-releases/webhook-releases",
+      "https://centermedical.myvtex.com/cms-releases/webhook-releases",
     ],
   },
-};
+}
